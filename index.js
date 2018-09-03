@@ -272,11 +272,11 @@ bot.on("message", async message => {
 			}
 			break;
 
-		case "help":
+		case "music-help":
 			message.channel.send("```cs\n" + commandsList + "\n```");
 			break;
 
-		case "commands":
+		case "mcmd":
 			message.channel.send("```cs\n" + commandsList + "\n```");
 			break;
 
