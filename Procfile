@@ -1,1 +1,1 @@
-worker: node crystal.js
+worker: node index.js
