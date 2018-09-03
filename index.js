@@ -102,7 +102,7 @@ bot.on("message", async message => {
 					message.reply(`now playing **${songsQueue[0]}**`);
 				}
 			} else if (args.length == 0 && queue.length == 0) {
-				message.reply("queue is empty now, type !play [song name] or !yt [song name] to play/search new songs!");
+				message.reply("Done !");
 			} else if (queue.length > 0 || isPlaying) {
 				getID(args).then(id => {
 					if (id) {
@@ -135,7 +135,7 @@ bot.on("message", async message => {
 		case "skip":
 			console.log(queue);
 			if (queue.length === 1) {
-				message.reply("queue is empty now, type !play [song name] or !yt [song name] to play/search new songs!");
+				message.reply("Done !");
 				dispatcher.end();
 				setTimeout(() => voiceChannel.leave(), 1000);
 			} else {
@@ -157,7 +157,7 @@ bot.on("message", async message => {
 
 		case "queue":
 			if (queue.length === 0) { // if there are no songs in the queue, send message that queue is empty
-				message.reply("queue is empty, type !play or !yt to play/search new songs!");
+				message.reply("Done !");
 			} else if (args.length > 0 && args[0] == 'remove') { // if arguments are provided and first one is remove
 				if (args.length == 2 && args[1] <= queue.length) { // check if there are no more than 2 arguments and that second one is in range of songs number in queue
 					// then remove selected song from the queue
@@ -200,7 +200,7 @@ bot.on("message", async message => {
 			}
 			break;
 
-		case "repeat":
+		case "renew":
 			if (isPlaying) {
 				queue.splice(1, 0, queue[0]);
 				songsQueue.splice(1, 0, songsQueue[0]);
