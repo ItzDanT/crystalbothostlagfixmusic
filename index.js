@@ -95,14 +95,14 @@ bot.on("message", async message => {
 		case "play":
 			if (args.length == 0 && queue.length > 0) {
 				if (!message.member.voiceChannel) {
-					message.reply("you need to be in a voice channel to play music. Please, join one and try again.");
+					message.reply("انت لست في روم صوتي");
 				} else {
 					isPlaying = true;
 					playMusic(queue[0], message);
 					message.reply(`now playing **${songsQueue[0]}**`);
 				}
 			} else if (args.length == 0 && queue.length == 0) {
-				message.reply("Done !");
+				message.reply("**-play [اسم الاغنية]**");
 			} else if (queue.length > 0 || isPlaying) {
 				getID(args).then(id => {
 					if (id) {
